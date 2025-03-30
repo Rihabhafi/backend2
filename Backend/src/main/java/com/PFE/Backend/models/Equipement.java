@@ -18,15 +18,40 @@ public class Equipement {
     private String marque;
     @Column(name ="numeroSerie")
     private String numeroSerie;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "etat")
+    private EtatEquipement etat; // Nouvel attribut État
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user; 
 
     // Constructeurs
     public Equipement() {}
 
-    public Equipement(String nom, String type, String marque, String numeroSerie) {
+    public Equipement(String nom, String type, String marque, String numeroSerie, EtatEquipement etat, User user) {
         this.nom = nom;
         this.type = type;
         this.marque = marque;
         this.numeroSerie = numeroSerie;
+        this.etat = etat;
+        this.user = user;
+    }
+
+    public EtatEquipement getEtat() {
+        return etat;
+    }
+
+    public void setEtat(EtatEquipement etat) {
+        this.etat = etat;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     // Getters et Setters
