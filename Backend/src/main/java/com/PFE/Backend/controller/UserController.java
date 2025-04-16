@@ -26,6 +26,12 @@ private final UserService userService;
         return userService.createUser(userDTO);
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<Long> getUserCount() {
+        long count = userService.getUserCount();
+        return ResponseEntity.ok(count);
+    }
+
     // 🔹 2. Récupérer un utilisateur par ID
     @GetMapping("/{id}")
     public UserMaxDTO getUserById(@PathVariable Integer id) {
@@ -49,6 +55,8 @@ private final UserService userService;
     public void deleteUser(@PathVariable Integer id) {
         userService.deleteUser(id);
     }
+ 
+    
 }
 
 

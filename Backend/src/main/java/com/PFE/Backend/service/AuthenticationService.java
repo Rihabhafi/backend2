@@ -54,15 +54,16 @@ public class AuthenticationService {
                 request.getPassword()
             ) 
         );
-
-        User user=repository.findByUsername(request.getUsername()).orElseThrow();
-        String token =jwtService.generateToken(user);
-
-        return new AuthenticationResponse(token);
+    
+        User user = repository.findByUsername(request.getUsername()).orElseThrow();
+        String token = jwtService.generateToken(user);
+    
+        return new AuthenticationResponse(token, user.getRole().toString(),user.getId(),user.getUsername()); // Ajoute le rôle
+    }
 
     }
 
 
 
 
-}
+

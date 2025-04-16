@@ -120,4 +120,18 @@ public class EquipementService {
     public void deleteEquipement(int id) {
         equipementRepository.deleteById(id);
     }
+
+    public long countEquipements() {
+        return equipementRepository.count();
+    }
+
+
+    public List<EquipementDTO> getEquipementsByUserId(int userId) {
+        List<Equipement> equipements = equipementRepository.findByUserId(userId);
+        return equipements.stream()
+                .map(equipementMapper::equipementToEquipementDTO) // ✅ méthode MapStruct
+                .collect(Collectors.toList());
+    }
+    
+   
 }

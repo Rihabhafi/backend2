@@ -69,4 +69,8 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    public Long getUserCount() {
+        return userRepository.count();  // Utilise la méthode count() de JPA
+    }
+
 }

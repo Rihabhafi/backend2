@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EquipementRepository extends JpaRepository<Equipement, Integer> {
     List<Equipement> findByEtat(EtatEquipement etat);
+    List<Equipement> findByUserId(int userId);
+
 }

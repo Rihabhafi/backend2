@@ -38,6 +38,19 @@ public class EquipementController {
     public List<EquipementDTO> getAllEquipements() {
         return equipementService.getAllEquipements();
     }
+    @GetMapping("/users/{userId}")
+public ResponseEntity<List<EquipementDTO>> getEquipementsByUserId(@PathVariable int userId) {
+    List<EquipementDTO> equipements = equipementService.getEquipementsByUserId(userId);
+    return ResponseEntity.ok(equipements);
+}
+
+
+    // Compter le nombre total d'équipements
+@GetMapping("/count")
+public ResponseEntity<Long> countEquipements() {
+    long count = equipementService.countEquipements();
+    return ResponseEntity.ok(count);
+}
 
     // Récupérer un équipement par ID
     @GetMapping("/{id}")
