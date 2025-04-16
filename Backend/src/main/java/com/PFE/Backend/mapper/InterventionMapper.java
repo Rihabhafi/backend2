@@ -11,10 +11,11 @@ public interface InterventionMapper {
 
      // 🔄 Intervention -> InterventionDTO
      @Mapping(source = "technicien.id", target = "technicienId")
+     @Mapping(source = "technicien.username", target = "technicienusername")
      @Mapping(source = "ticket.id", target = "ticketId")
      @Mapping(source = "dateIntervention", target = "dateIntervention")
      @Mapping(source = "equipement.id", target = "equipementId")
-    @Mapping(source = "equipement.numeroSerie", target = "equipementref")
+  
      InterventionDTO interventionToInterventionDTO(Intervention intervention);
  
      // 🔄 InterventionDTO -> Intervention

@@ -9,7 +9,7 @@ public class InterventionDTO {
     private Integer technicienId;
     private Integer ticketId;
     private Integer equipementId;
-    private String equipementref; 
+    private String technicienusername; 
     
 
       // Getters et setters
@@ -26,12 +26,12 @@ public class InterventionDTO {
           this.equipementId = equipementId;
       }
 
-      public String getEquipementref() {
-          return equipementref;
+      public String gettechnicienusername() {
+          return technicienusername;
       }
 
-      public void setEquipementref(String equipementref) {
-          this.equipementref = equipementref;
+      public void settechnicienusername(String technicienusername) {
+          this.technicienusername = technicienusername;
       }
 
     public void setId(Integer id) {
